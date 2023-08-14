@@ -43,7 +43,7 @@ export default function Monitor({
   const AspectRatiosButtons = () => {
     return (
       <div className="flex flex-col gap-2">
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-center">
           <button
             className="border-4 p-2 rounded-md w-16 h-9 font-bold flex justify-center items-center"
             onClick={() => {
@@ -63,7 +63,7 @@ export default function Monitor({
             custom
           </button>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-center">
           <button
             className="border-4 p-2 rounded-md w-20 h-9 font-bold flex justify-center items-center"
             onClick={() => {
@@ -90,7 +90,7 @@ export default function Monitor({
   const ResolutionButtons = () => {
     if (aspectRatioWidth === 16 && aspectRatioHeight === 9)
       return (
-        <div className="flex flex-row flex-wrap gap-2">
+        <div className="flex flex-row flex-wrap gap-2 justify-center">
           <button
             className="border-4 p-2 rounded-md w-13 h-9 font-bold flex justify-center items-center"
             onClick={() => {
@@ -131,7 +131,7 @@ export default function Monitor({
       );
     else if (aspectRatioWidth === 21 && aspectRatioHeight === 9)
       return (
-        <div className="flex flex-row gap-2 flex-wrap">
+        <div className="flex flex-row gap-2 flex-wrap justify-center">
           <button
             className="border-4 p-2 rounded-md w-13 h-9 font-bold flex justify-center items-center"
             onClick={() => {
@@ -163,7 +163,7 @@ export default function Monitor({
       );
     else if (aspectRatioWidth === 32 && aspectRatioHeight === 9)
       return (
-        <div className="flex flex-row gap-2 flex-wrap">
+        <div className="flex flex-row gap-2 flex-wrap justify-center">
           <button
             className="border-4 p-2 rounded-md w-13 h-9 font-bold flex justify-center items-center"
             onClick={() => {
@@ -188,93 +188,93 @@ export default function Monitor({
   };
 
   return (
-    <div className="w-80 flex flex-col gap-4">
-      <div className="flex flex-col gap-2 justify-between">
+    <div className="w-72 flex flex-col">
+      <div className="flex flex-col justify-between bg-purple-950/20 rounded-md p-4">
         <AspectRatiosButtons />
-        <div className="flex flex-row justify-between">
-          <label className="text-2xl font-bold">Aspect ratio</label>
-          <div>
+        <div className="flex flex-row justify-between pt-4">
+          <label className="font-bold">Aspect ratio</label>
+          <div className='flex gap-1'>
             <input
               type="number"
               value={!isNaN(aspectRatioWidth) ? aspectRatioWidth : ''}
               onChange={(event) =>
                 setAspectRatioWidth(parseInt(event.target.value))
               }
-              className="text-2xl w-16 font-bold"
+              className=" w-14 font-bold text-center rounded-sm"
             />
-            :
+            <div>:</div>
             <input
               type="number"
               value={!isNaN(aspectRatioHeight) ? aspectRatioHeight : ''}
               onChange={(event) =>
                 setAspectRatioHeight(parseInt(event.target.value))
               }
-              className="text-2xl w-16 font-bold"
+              className=" w-14 font-bold text-center rounded-sm"
             />
           </div>
         </div>
       </div>
 
       {/* RESOLUTION  */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col p-4 my-4 bg-purple-950/20 rounded-md">
         <ResolutionButtons />
-        <div className="flex flex-row justify-between">
-          <label className="text-2xl font-bold">Resolution</label>
-          <div>
+        <div className="flex flex-row justify-between pt-4">
+          <label className=" font-bold">Resolution</label>
+          <div className='flex gap-1'>
             <input
               type="number"
               value={!isNaN(resolutionWidth) ? resolutionWidth : ''}
               onChange={(event) =>
                 setResolutionWidth(parseInt(event.target.value))
               }
-              className="text-2xl w-20 font-bold"
+              className=" w-16 font-bold text-center rounded-sm"
             />
-            x
+            <div>x</div>
             <input
               type="number"
               value={!isNaN(resolutionHeight) ? resolutionHeight : ''}
               onChange={(event) =>
                 setResolutionHeight(parseInt(event.target.value))
               }
-              className="text-2xl w-20 font-bold"
+              className=" w-16 font-bold text-center rounded-sm"
             />
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-between">
-        <label className="text-2xl font-bold">Screen size</label>
+      <div className="flex flex-row justify-between  bg-purple-950/20 rounded-md p-4">
+        <label className=" font-bold">Screen size</label>
         <input
           value={!isNaN(diagonal) ? diagonal : ''}
           onChange={(event) => setDiagonal(parseFloat(event.target.value))}
-          className="text-2xl w-16 font-bold"
+          className=" w-16 font-bold text-center rounded-sm"
         />
       </div>
       {/* <div className="flex flex-row justify-between">
         <button
           onClick={() => calculate()}
-          className="text-2xl border-4 p-2 font-bold"
+          className=" border-4 p-2 font-bold"
         >
           Calculate
         </button>
       </div> */}
-      <div className="border-2 rounded-md  p-2">
-        <div className="flex flex-row gap-2 justify-between">
-          <label className="text-2xl font-bold">Width:</label>
-          <label className="text-2xl font-bold">
+      <div className="border-2 rounded-md  px-4 py-2 mt-2">
+        <div className="flex flex-row justify-between">
+          <label className=" font-bold">Width:</label>
+          <label className=" font-bold">
             {(isImperialUnits ? width : width * 2.54).toFixed(2)}
             {isImperialUnits ? 'inches' : 'cm'}
           </label>
         </div>
-        <div className="flex flex-row gap-2 justify-between">
-          <label className="text-2xl font-bold">Height:</label>
-          <label className="text-2xl font-bold">
+        <div className="flex flex-row  justify-between">
+          <label className=" font-bold">Height:</label>
+          <label className=" font-bold">
             {(isImperialUnits ? height : height * 2.54).toFixed(2)}
             {isImperialUnits ? 'inches' : 'cm'}
           </label>
         </div>
-        <div className="flex flex-row gap-2 justify-between">
-          <label className="text-2xl font-bold">PPI:</label>
-          <label className="text-2xl font-bold">{ppi.toFixed(2)}</label>
+        <div className="flex flex-row  justify-between">
+          <label className=" font-bold">PPI:</label>
+          <label className=" font-bold">{ppi.toFixed(2)}</label>
         </div>
       </div>
     </div>
