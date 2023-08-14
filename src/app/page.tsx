@@ -24,17 +24,17 @@ export default function Home() {
         </div>
       </nav>
       <main className="flex min-h-screen flex-col justify-center items-center p-4">
-        <div className='w-96 h-72 '>
+        <div className='w-full h-96'>
           {/* visualize two screensizes with two different colored divs */}
 
           <div
             className="border-2 bg-slate-500 absolute opacity-80"
-            style={{ width: width1*5, height: height1*5 }}
+            style={{ width: width1*20, height: height1*20 }}
           ></div>
 
           <div
             className="border-2 bg-rose-500 absolute opacity-50"
-            style={{ width: width2*5, height: height2*5 }}
+            style={{ width: width2*20, height: height2*20 }}
           ></div>
         </div>
         <div className="flex flex-row gap-4 ">
